@@ -1,4 +1,4 @@
-for url in ["http://help.wufoo.com/articles/en_US/SurveyMonkeyArticleType/Account-Manager"]:
+for url in ["http://www.yahoo.com"]:
             try:
                 connection = urllib2.urlopen(url)
                 print connection.getcode()
