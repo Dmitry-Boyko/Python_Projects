@@ -9,7 +9,7 @@ class Bounced(): # Verification Bounced group
     def bounce_verification(self, selenium_driver):
         print('Bounce verification')
         try:
-            element = selenium_driver.find_element(By.XPATH,"//ul[@id='ab-group-list']/li[2]/div/span")
+            element = selenium_driver.find_element(By.XPATH,"<//XPATH HERE>")
             assert element.text == 'Bounced'
             print "Bounced Email found"
         except:
