@@ -1,6 +1,6 @@
 # URL links in text
     
-    elemThemeDes = selenium_driver.find_element(By.XPATH, './/*[@id=\'juice\']/p[4]/a[1]')
+    elemThemeDes = selenium_driver.find_element(By.XPATH, './/*[@id=\'blah\']/p[4]/a[1]')
     if elemThemeDes.is_displayed():
         print '\n"Theme Designer" URL link exist'
     else:
