@@ -18,9 +18,11 @@ else:
 
 from lb2kg import lb2kg
 from inch2cm import inch2cm
+from fr2cl import fr2cl
 
 print 'convert lb to kg press "l"'
 print 'convert inch to cm press "i"'
+print 'convert F to C press "f"'
 
 choice = str(raw_input('Enter the letter for the next step: '))
 
@@ -28,6 +30,8 @@ if choice == "i":
                  inch2cm()
 elif choice == "l":
                  lb2kg()
+elif choice == "f":
+				fr2cl()
 else:
     print "You chosed wrong character"
  
@@ -41,3 +45,8 @@ class weights():
     def __init__(self):
         self.inpt = 0
         self.kg = 0
+        
+class temperature():
+	def __init__(self):
+		self.inpt = 0
+		self.c = 0
