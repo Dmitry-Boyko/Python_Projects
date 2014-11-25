@@ -1,4 +1,7 @@
 __author__ = 'dmitryboyko'
+# Dmitry Boyko
+# cell.8184160900@yahoo.com
+# MAC / Yosemite / 10.10.1
 
 '''
 OS: Windows or Mac
