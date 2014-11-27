@@ -7,6 +7,24 @@ convenience methods provided that help you write code that will wait only as
 long as required. WebDriverWait in combination with ExpectedCondition is one 
 way this can be accomplished.
 '''
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait # available since 2.4.0
+from selenium.webdriver.support import expected_conditions as EC # available since 2.26.0
+
+ff = webdriver.Firefox()
+ff.get("http://somedomain/url_that_delays_loading")
+try:
+    element = WebDriverWait(ff, 10).until(EC.presence_of_element_located((By.ID, "myDynamicElement")))
+finally:
+    ff.quit()
+    
+'''
+Expected Conditions
+There are some common conditions that are frequently come across when automating web browsers. Listed below are Implementations of each. Java happens to have convienence methods so you don’t have to code an ExpectedCondition class yourself or create your own utility package for them.
+
+Element is Clickable - it is Displayed and Enabled.
+'''
 from selenium.webdriver.support import expected_conditions as EC
 wait = WebDriverWait(driver, 10)
 element = wait.until(EC.element_to_be_clickable((By.ID,'someid')))
