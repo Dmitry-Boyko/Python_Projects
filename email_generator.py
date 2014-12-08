@@ -3,7 +3,7 @@ __author__ = 'dmitryb'
 '''
 1. make a loop
 2. generate a local-part (use binascii)= name
-3. add "@" simbol and domain. exmpl: '@blahblah.ks'
+3. add "@" symbol and domain. example: '@blahblah.ks'
 4. save it in csv file
 '''
 
