@@ -5,7 +5,7 @@ class TestPricing:
 
     def Per_Year_Top(self, selenium_driver, xpath, expected):
         actual = list()
-        elems_list = selenium_driver.find_elements(By.XPATH, xpath)
+        elems_list = selenium_driver.find_elements(By.XPATH, '<xpath here>')
         for elem in elems_list:
             menu_elem = elem.text.replace('\n', '')
             actual.append(menu_elem)
