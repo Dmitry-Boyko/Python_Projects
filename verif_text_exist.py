@@ -1,7 +1,7 @@
     print '\n "On This Page" menu'
     exp_menu = ["It's Easy!", 'Meet a Wufoo powered team', 'Notification Options', 'Integration & Branding', 'Themes & Templates']
     act_menu = list()
-    elems_list = selenium_driver.find_elements(By.XPATH, './/*[@id=\'blah\']/div[1]/ul/li')
+    elems_list = selenium_driver.find_elements(By.XPATH, './/*[@id=\'blah\']///li')
     for elem in elems_list:
         menu_elem = elem.text.replace('\n', '')
         act_menu.append(menu_elem)
