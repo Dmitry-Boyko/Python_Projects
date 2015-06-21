@@ -20,4 +20,4 @@ if element.text != u'SomeText':
 # or ...
 assertTrue(findElement(By.id("myID")).getText().equals("foo")
 
-Obviously object indentifier can to be changed like: (CSS, XPATH, tagName, ... etc)
+Obviously "object" identifier can to be changed like: (CSS, XPATH, tagName, ... etc)
