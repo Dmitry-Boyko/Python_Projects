@@ -2,7 +2,7 @@ import random
 
 print("test 1")
 ip = ".".join(map(str, (random.randint(0, 255)      # IP's min and max number
-                        for _ in range(4))))     # will gererate 4 group of numbers "xxx.xxx.xxx.xxx"
+                        for _ in range(4))))        # will gererate 4 group of numbers "xxx.xxx.xxx.xxx"
 print ip
 
 
