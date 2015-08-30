@@ -1,5 +1,5 @@
 # I found this example very usable
-print('"discard" methon for remove particular string value from list\n')
+print('"discard" method for remove particular string value from list\n')
 
 words = ['test', 'many', 'makeword', 'jazz', 'tube'] # list
 
