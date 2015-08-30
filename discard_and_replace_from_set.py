@@ -13,7 +13,7 @@ words("MAKEWORD", "Makeword", "makeword", plus using "replace" some string value
 
 words = ('test', 'many[br]', 'makeword', 'jazz[br]', 'doc', 'word', 'words') # tuple
 
-words = [w.replace('[br]', '<br />') for w in words]
+words = [w.replace('[br]', '<br/>') for w in words]
 words = set(words) - {"MAKEWORD", "Makeword", "makeword"}
 print words
 
