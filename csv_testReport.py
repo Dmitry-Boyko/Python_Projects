@@ -12,6 +12,7 @@ from csv_generator import csv_File
 
 class address_book():
     def addressBook(self, selenium_driver):
+        csvFile = csv_File()
         try:
             selenium_driver.find_element(By.ID, "userAcctTab_MainMenu").click()
             selenium_driver.find_element(By.LINK_TEXT, "Contacts").click()
