@@ -9,8 +9,8 @@ class Bounced(): # Verification Bounced group
     def bounce_verification(self, selenium_driver):
         print('Bounce verification')
         try:
-            element = selenium_driver.find_element(By.XPATH,"<//XPATH HERE>")
-            assert element.text == 'Bounced'
-            print "Bounced Email found"
-        except:
-            print "_____Oops, Bounced group doesn't found"
+            strElement = selenium_driver.find_element(By.XPATH,"<//XPATH HERE>")
+            for elem in strElement:
+                if elem.text != 'TextStr':
+                    print('TextStr verification Fail: is not %r' % elem.text)
+     
