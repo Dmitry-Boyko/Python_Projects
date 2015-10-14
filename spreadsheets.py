@@ -40,14 +40,13 @@ datetime.datetime(2014, 4, 5, 13, 34, 2)
 '73'
 >>> sheet.cell(row=1, column=2)
 <Cell Sheet1.B1>
->>> for i in range(1, 6):
+>>> for i in range(1, 5):
     print(i, sheet.cell(row=i, column=2).value)
     
 1 Apples
 2 Cherries
 3 Pears
-4 Orange
-5 Apples
+4 Apples
 
 
 
