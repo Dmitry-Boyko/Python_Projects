@@ -1,5 +1,5 @@
 """
-Looking(do match by name and extension) and count inside directory.
+"fnmatch" module compares file names against glob-style patterns such as used by Unix shells.
 Find more information: 
 https://pymotw.com/2/fnmatch/
 http://www.pythonforbeginners.com/fnmatch/os-walk-and-fnmatch-in-python
