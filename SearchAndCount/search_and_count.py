@@ -1,13 +1,15 @@
 """
-Looking(do match by name and extension) and count inside directory
+Looking(do match by name and extension) and count inside directory.
+Find more information: 
+https://pymotw.com/2/fnmatch/
+http://www.pythonforbeginners.com/fnmatch/os-walk-and-fnmatch-in-python
 """
 
 import os
 from fnmatch import fnmatch
 
 root = '//Users//dmitryboyko//Documents//'
-extension = '*.py'
-name = 'test.*'
+extension = 'test*.py'
 
 counts = 0
 
