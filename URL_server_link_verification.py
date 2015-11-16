@@ -1,6 +1,6 @@
 for url in ["http://www.yahoo.com"]:
             try:
-                connection = urllib2.urlopen(url)
+                connection = urllib2.urlopen(<'url'>)
                 print connection.getcode()
                 connection.close()
                 print'"More Information" URL lInk found'

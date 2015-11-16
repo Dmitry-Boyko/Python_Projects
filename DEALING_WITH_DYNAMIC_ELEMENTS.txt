@@ -1,0 +1,4 @@
+### DEALING WITH DYNAMIC ELEMENTS ###
+<input type = "checkbox" value True id = "Form_43c256/">
+1. use //input[contains(@id, 'Form_')]
+2. use XPATH to locate the dinamic element relativy to a static element
