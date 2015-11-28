@@ -1,6 +1,6 @@
 __author__ = 'dmitryboyko'
 # Create 3 folders and 3 files inside those folders
-f_names = ['folder1','folder2','folder3']
+f_names = ['folder11','folder2','folder3']
 files_names = ['1.txt','2.txt','3.txt']
 for index in range(0, 3):
     file_path = os.path.join(root_path, f_names[index])

@@ -14,15 +14,15 @@ Browser: IE or Safari
 5. Go up to step-4 where congratulations message is displayed.
 '''
 
-import os, binascii
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support.select import Select
-from csv_file import write_csv_File
-import webbrowser
+import os
+import binascii
 import sys
 import traceback
+
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+
+from _MyGit.Python_Scripts.csv_file import write_csv_File
 
 
 url = 'https://dev2.pley.com'

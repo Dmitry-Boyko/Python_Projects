@@ -24,7 +24,7 @@ class email():
 
     def e_generator(self):
         try:
-            with open('//Users/dmitryboyko/Documents/workspace/Python/emails.csv', 'w') as f:
+            with open('//Users/dmitryboyko/Documents/___workspace/Python/emails.csv', 'w') as f:
                 a = csv.writer(f, delimiter=';')
                 for name_index in range(0, 101):
                     e_mail = [ str(name_index) + e_domain]
