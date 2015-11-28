@@ -1,10 +1,9 @@
 from bs4 import BeautifulSoup
 import time
-import urllib.request
-
+import urllib2
 from dbconnect import connection
 
-req = urllib.request.urlopen('http:/www.nation...')
+req = urllib2.urlopen('http:/www.nation...')
 
 xml = BeautifulSoup(req, 'xml')
 
@@ -13,7 +12,7 @@ c, conn = connection()
 for item in xml.findAll('link')[3:]:
     url = item.text
     c.execute('INSERT ITO links (time, link) VALUES (%s, %s)',
-              (time.time(), link))
+              (time.time(), url))
     conn.commit()
 
 conn.close()
