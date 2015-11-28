@@ -3,6 +3,7 @@ import time
 import urllib2
 from dbconnect import connection
 
+
 req = urllib2.urlopen('http:/www.nation...')
 
 xml = BeautifulSoup(req, 'xml')
