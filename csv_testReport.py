@@ -3,7 +3,7 @@ import csv
 import sys
 
 def csv_File():
-    with open('test_report.scv', 'w') as csvfile:
+    with open('test_report.csv', 'w') as csvfile:
         test_writer = csv.DictWriter(csvfile, delimiter = ',')
         test_writer.writerow(['Test Case'] + ['Result'])
 
@@ -12,6 +12,7 @@ from csv_generator import csv_File
 
 class address_book():
     def addressBook(self, selenium_driver):
+        csvFile = csv_File()
         try:
             selenium_driver.find_element(By.ID, "userAcctTab_MainMenu").click()
             selenium_driver.find_element(By.LINK_TEXT, "Contacts").click()

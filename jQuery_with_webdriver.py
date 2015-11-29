@@ -7,3 +7,6 @@ unction deleteTest() {
   return false;
 }
 deleteTest();
+
+jquery for delete delete an item from a list -> jQuery(".deleteLink a").click();
+selenium_driver.execute_script('jQuery(".deleteLink a").click();')

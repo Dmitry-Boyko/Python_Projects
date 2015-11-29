@@ -1,0 +1,13 @@
+We have Access tab and submenu with button-links.
+For find css selector we're make call to ID which 'access', then we're callin a class('selected'), add 'li' tag and finally make call by title
+
+#access .submenu li a[title="List"]
+css=#access .submenu li a[title="List"]
+
+<div id="access">
+    <li class="selected">
+        <a title="Access" href="/listDispatcher.html?action=listAccess">Access</a>
+        <ul class="submenu">
+    <li>
+    <a class="selected" title="List" href="/listDispatcher.html?action=listAccess">List</a>
+  </li>
