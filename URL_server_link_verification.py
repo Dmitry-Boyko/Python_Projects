@@ -1,6 +1,8 @@
+import urllib2
+
 for url in ["http://www.yahoo.com"]:
             try:
-                connection = urllib2.urlopen(<'url'>)
+                connection = urllib2.urlopen("http://www.cinemark.com/home.aspx")
                 print connection.getcode()
                 connection.close()
                 print'"More Information" URL lInk found'
