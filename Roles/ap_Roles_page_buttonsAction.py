@@ -2,7 +2,7 @@
 __author__ dmitry.boyko
 
 This file run automation.
-Will call each "Tab" and verify submenu buttons will open expected page with expected buttons inside.
+Will call each "button" located inside submenu pages with Roles verification dependency.
 
 """
 
@@ -19,7 +19,7 @@ from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException
 from tabs_subMenu_buttons.page_object_elem.ap_elements import presets
 from tabs_subMenu_buttons.page_object_elem.ap_variables import my_credentials, common_funcs
-from tabs_subMenu_buttons.tab_Dashboard_subMenu_objects import ui_Dashboard
+from tabs_subMenu_buttons.tab_Dashboard_subMenu_objects import verification
 from tabs_subMenu_buttons.tab_Events_subMenu_objects import ui_Events
 from tabs_subMenu_buttons.tab_Templates_subMenu_objects import ui_Templates
 from tabs_subMenu_buttons.tab_Deployments_subMenu_objects import ui_Deployments
@@ -32,6 +32,7 @@ from tabs_subMenu_buttons.tab_Systems_subMenu_objects import ui_Systems
 from tabs_subMenu_buttons.tab_Vouchers_subMenu_objects import ui_Vouchers
 from tabs_subMenu_buttons.tab_Billing_subMenu_objects import ui_Billing
 from tabs_subMenu_buttons.page_object_elem.ap_variables import my_credentials
+from tabs_subMenu_buttons.page_object_elem.ap_elements import presets
 
 def driver():
     selenium_driver = webdriver.Firefox()
@@ -40,610 +41,404 @@ def driver():
     selenium_driver.delete_all_cookies()
     return selenium_driver
 
-#   Login   ############################################################################################################
-
-                # class login():
 
 #   Dashboard   ########################################################################################################
 
-class test_Dashboard():
-    f = open(os.path.join(path_report, "AP_Dashboard.log"), 'w')
-
-    def open_dashboard_tab(self, selenium_driver):
-        dashboard = ui_Dashboard(selenium_driver)
-        dashboard.ap_dashboard_tab(selenium_driver).click()
-        # verification
-        verif = common_funcs(self)
-        # crdn = my_credentials(selenium_driver)
-        xPathLocator = "h2"
-        # test_str = crdn.subMenu_strings()['testDashboard_Dashboard']
-        test_str = u'Dashboard'
-        verif.verification(selenium_driver, xPathLocator, test_str)
-
-    def select_view_button(self, selenium_driver):
-        dashboard = ui_Dashboard(selenium_driver)
-        dashboard.ap_subMenu_dashboard_view_button(selenium_driver).click()
-        # verification
-        verif = common_funcs(self)
-        xPathLocator = "//h2"
-        test_str = u'Dashboard'
-        verif.verification(selenium_driver, xPathLocator, test_str)
-
-    def select_edit_button(self, selenium_driver):
-        dashboard = ui_Dashboard(selenium_driver)
-        dashboard.ap_subMenu_dashboard_edit_button(selenium_driver).click()
-        # verification
-        verif = common_funcs(self)
-        xPathLocator = "//div[2]/fieldset/legend"
-        test_str = u'Dashboard Layout'
-        verif.verification(selenium_driver, xPathLocator, test_str)
+class Dashboard_buttons():
+    f = open(os.path.join(path_report, "AP_Dashboard_pageButtons.log"), 'w')
 
 
-#   Events  ############################################################################################################
+    def save_button(self, selenium_driver):
+        # btnPresent = presets(selenium_driver)
+        verif = verification(self)
+        IDLocator = "dashboard_save_button"
+        button_name = u"Save"
 
-class test_Events():
-    f = open(os.path.join(path_report, "AP_Event.log"), 'w')
+        verif.verification_button(selenium_driver, IDLocator, button_name)
 
-    def open_events_tab(self, selenium_driver):
-        event = ui_Events(selenium_driver)
-        event.ap_events_tab(selenium_driver).click()
-        # verification
-        verif = common_funcs(self)
-        xPathLocator = "//th/span"
-        test_str = u'!'
-        verif.verification(selenium_driver, xPathLocator, test_str)
+    def cancel_button(self, selenium_driver):
+        verif = verification(self)
+        IDLocator = "dashboard_cancel_button"
+        button_name = u"Edit"
 
-    def select_list_button(self, selenium_driver):
-        event = ui_Events(selenium_driver)
-        event.ap_subMenu_list_button(selenium_driver).click()
-        # verification
-        verif = common_funcs(self)
-        xPathLocator = "//th/span"
-        test_str = u'!'
-        verif.verification(selenium_driver, xPathLocator, test_str)
+        verif.verification_button(selenium_driver, IDLocator, button_name)
+        '''
+        btnPresent = presets(selenium_driver)
 
-    def select_detail_button(self, selenium_driver):
-        event = ui_Events(selenium_driver)
-        event.ap_subMenu_details_button(selenium_driver).click()
-        # verification
-        verif = common_funcs(self)
-        xPathLocator = "//h3/span"
-        test_str = u'Basic Information'
-        verif.verification(selenium_driver, xPathLocator, test_str)
+        page_button = selenium_driver.find_elements(By.ID, btnPresent.page_buttons()['dashboard_cancel_button'])
+        for button in page_button:
+            if button.is_displayed():
+                f.write(btnPresent.page_buttons()['dashboard_cancel_button'], 'observed')
+        '''
 
-    def select_access_button(self, selenium_driver):
-        event = ui_Events(selenium_driver)
-        event.ap_subMenu_access_button(selenium_driver).click()
-        # verification
-        verif = common_funcs(self)
-        xPathLocator = "//h2"
-        test_str = u'Access Codes'
-        verif.verification(selenium_driver, xPathLocator, test_str)
+#   Event   ############################################################################################################
 
-    def select_labs_button(self, selenium_driver):
-        event = ui_Events(selenium_driver)
-        event.ap_subMenu_labs_button(selenium_driver).click()
-        # verification
-        verif = common_funcs(self)
-        xPathLocator = "//h2"
-        test_str = u'Labs'
-        verif.verification(selenium_driver, xPathLocator, test_str)
+class Events_buttons():
+    f = open(os.path.join(path_report, "AP_Events_pageButtons.log"), 'w')
 
-    def select_sessions_button(self, selenium_driver):
-        event = ui_Events(selenium_driver)
-        event.ap_subMenu_sessions_button(selenium_driver).click()
-        # verification
-        verif = common_funcs(self)
-        xPathLocator = "//h2"
-        test_str = u'Sessions'
-        verif.verification(selenium_driver, xPathLocator, test_str)
+    def events__new_button(self, selenium_driver):
+        # btnPresent = presets(selenium_driver)
+        verif = verification(self)
+        IDLocator = "new_button"
+        button_name = u"New Event"
+        verif.verification_button(selenium_driver, IDLocator, button_name)
 
-    def select_notifications_button(self, selenium_driver):
-        event = ui_Events(selenium_driver)
-        event.ap_subMenu_notifications_button(selenium_driver).click()
-        # verification
-        verif = common_funcs(self)
-        xPathLocator = "//h2"
-        test_str = u'Notifications'
-        verif.verification(selenium_driver, xPathLocator, test_str)
+    def events__search_button(self, selenium_driver):
+        # btnPresent = presets(selenium_driver)
+        verif = verification(self)
+        IDLocator = "search_event"
+        button_name = u"Search Event"
+        verif.verification_button(selenium_driver, IDLocator, button_name)
 
-    def select_history_button(self, selenium_driver):
-        event = ui_Events(selenium_driver)
-        event.ap_subMenu_history_button(selenium_driver).click()
-        # verification
-        verif = common_funcs(self)
-        xPathLocator = "//h2"
-        test_str = u'History'
-        verif.verification(selenium_driver, xPathLocator, test_str)
+    def events__go_button(self, selenium_driver):
+        # btnPresent = presets(selenium_driver)
+        verif = verification(self)
+        IDLocator = "go"
+        button_name = u"Go"
+        verif.verification_button(selenium_driver, IDLocator, button_name)
 
-    def select_notes_button(self, selenium_driver):
-        event = ui_Events(selenium_driver)
-        event.ap_subMenu_notes_button(selenium_driver).click()
-        # verification
-        verif = common_funcs(self)
-        xPathLocator = "//h2"
-        test_str = u'Event Notes'
-        verif.verification(selenium_driver, xPathLocator, test_str)
+    # Go to Details page
+    def events__edit_button(self, selenium_driver):
+        # btnPresent = presets(selenium_driver)
+        verif = verification(self)
+        IDLocator = "edit_button"
+        button_name = u"Edit Event"
+        verif.verification_button(selenium_driver, IDLocator, button_name)
+
+    def events__delete_button(self, selenium_driver):
+        # btnPresent = presets(selenium_driver)
+        verif = verification(self)
+        IDLocator = "delete_button"
+        button_name = u"Delete Event"
+        verif.verification_button(selenium_driver, IDLocator, button_name)
+
+    def events__cancel_button(self, selenium_driver):
+        # btnPresent = presets(selenium_driver)
+        verif = verification(self)
+        IDLocator = "cancel_button"
+        button_name = u"Cancel Event"
+        verif.verification_button(selenium_driver, IDLocator, button_name)
 
 
 #   Templates   ########################################################################################################
 
-class test_Templates():
-    f = open(os.path.join(path_report, "AP_Templates.log"), 'w')
+class Templates_buttons():
+    f = open(os.path.join(path_report, "AP_Templates_pageButtons.log"), 'w')
 
-    def open_template_tab(self, selenium_driver):
-        template = ui_Templates(selenium_driver)
-        template.ap_templates_tab(selenium_driver).click()
-        # verification
-        verif = common_funcs(self)
-        xPathLocator = "//th[6]/span"
-        test_str = u'Deployment Type'
-        verif.verification(selenium_driver, xPathLocator, test_str)
+    def templates__new_button(self, selenium_driver):
+        # btnPresent = presets(selenium_driver)
+        verif = verification(self)
+        IDLocator = "new_button"
+        button_name = u"New Template"
+        verif.verification_button(selenium_driver, IDLocator, button_name)
 
-    def select_list_button(self, selenium_driver):
-        template = ui_Templates(selenium_driver)
-        template.ap_subMenu_list_button(selenium_driver).click()
-        # verification
-        verif = common_funcs(self)
-        xPathLocator = "//th[5]/span"
-        test_str = u'Catalog Num'
-        verif.verification(selenium_driver, xPathLocator, test_str)
+    def templates__search_button(self, selenium_driver):
+        # btnPresent = presets(selenium_driver)
+        verif = verification(self)
+        IDLocator = "search_template"
+        button_name = u"Search Template"
+        verif.verification_button(selenium_driver, IDLocator, button_name)
 
-    def select_detail_button(self, selenium_driver):
-        template = ui_Templates(selenium_driver)
-        template.ap_subMenu_detail_button(selenium_driver).click()
-        # verification
-        verif = common_funcs(self)
-        xPathLocator = "//div[2]/span/table/tbody/tr/td/span"
-        test_str = u'Deployment Type'
-        verif.verification(selenium_driver, xPathLocator, test_str)
+    def templates__go_button(self, selenium_driver):
+        # btnPresent = presets(selenium_driver)
+        verif = verification(self)
+        IDLocator = "go"
+        button_name = u"Go"
+        verif.verification_button(selenium_driver, IDLocator, button_name)
 
-    def select_events_button(self, selenium_driver):
-        template = ui_Templates(selenium_driver)
-        template.ap_subMenu_events_button(selenium_driver).click()
-        # verification
-        verif = common_funcs(self)
-        xPathLocator = "//h2"
-        test_str = u'Events'
-        verif.verification(selenium_driver, xPathLocator, test_str)
+    # Go to Details page
+    def templates__edit_button(self, selenium_driver):
+        # btnPresent = presets(selenium_driver)
+        verif = verification(self)
+        IDLocator = "edit_button"
+        button_name = u"Edit Template"
+        verif.verification_button(selenium_driver, IDLocator, button_name)
 
-    def select_templateVouchers_button(self, selenium_driver):
-        template = ui_Templates(selenium_driver)
-        template.ap_subMenu_templateVouchers_button(selenium_driver).click()
-        # verification
-        verif = common_funcs(self)
-        xPathLocator = "//h2"
-        test_str = u'Vouchers'
-        verif.verification(selenium_driver, xPathLocator, test_str)
+    def templates__delete_button(self, selenium_driver):
+        # btnPresent = presets(selenium_driver)
+        verif = verification(self)
+        IDLocator = "delete_button"
+        button_name = u"Delete Template"
+        verif.verification_button(selenium_driver, IDLocator, button_name)
 
-    def select_content_button(self, selenium_driver):
-        template = ui_Templates(selenium_driver)
-        template.ap_subMenu_content_button(selenium_driver).click()
-        # verification
-        verif = common_funcs(self)
-        xPathLocator = "//h2"
-        test_str = u'Content'
-        verif.verification(selenium_driver, xPathLocator, test_str)
-
-    def select_history_button(self, selenium_driver):
-        template = ui_Templates(selenium_driver)
-        template.ap_subMenu_history_button(selenium_driver).click()
-        # verification
-        verif = common_funcs(self)
-        xPathLocator = "//h2"
-        test_str = u'History'
-        verif.verification(selenium_driver, xPathLocator, test_str)
+    def templates__Go_filterEvent_button(self, selenium_driver):
+        # btnPresent = presets(selenium_driver)
+        verif = verification(self)
+        IDLocator = "go_filterEvent"
+        button_name = u"Go"
+        verif.verification_button(selenium_driver, IDLocator, button_name)
 
 #   Deployments   ######################################################################################################
 
-class test_Deployments():
-    f = open(os.path.join(path_report, "AP_Deployments.log"), 'w')
+class Deployments_buttons():
+    f = open(os.path.join(path_report, "AP_Deployments_pageButtons.log"), 'w')
 
-    def open_deployments_tab(self, selenium_driver):
-        deployments = ui_Deployments(selenium_driver)
-        deployments.ap_deployments_tab(selenium_driver).click()
-        # verification
-        verif = common_funcs(self)
-        xPathLocator = "//th[6]/span"
-        test_str = u'Target Platform'
-        verif.verification(selenium_driver, xPathLocator, test_str)
+    def deployments__new_button(self, selenium_driver):
+        # btnPresent = presets(selenium_driver)
+        verif = verification(self)
+        IDLocator = "new_button"
+        button_name = u"New Deployment"
+        verif.verification_button(selenium_driver, IDLocator, button_name)
 
-    def select_list_button(self, selenium_driver):
-        deployments = ui_Deployments(selenium_driver)
-        deployments.ap_subMenu_list_button(selenium_driver).click()
-        # verification
-        verif = common_funcs(self)
-        xPathLocator = "//th[5]/span"
-        test_str = u'Image'
-        verif.verification(selenium_driver, xPathLocator, test_str)
+    def deployments__search_button(self, selenium_driver):
+        # btnPresent = presets(selenium_driver)
+        verif = verification(self)
+        IDLocator = "search_template"
+        button_name = u"Search Deployment"
+        verif.verification_button(selenium_driver, IDLocator, button_name)
 
-    def select_detail_button(self, selenium_driver):
-        deployments = ui_Deployments(selenium_driver)
-        deployments.ap_subMenu_detail_button(selenium_driver).click()
-        # verification
-        verif = common_funcs(self)
-        xPathLocator = "//h3/span"
-        test_str = u'Deployment'
-        verif.verification(selenium_driver, xPathLocator, test_str)
+    def deployments__go_button(self, selenium_driver):
+        # btnPresent = presets(selenium_driver)
+        verif = verification(self)
+        IDLocator = "go"
+        button_name = u"Go"
+        verif.verification_button(selenium_driver, IDLocator, button_name)
 
-    def select_channels_button(self, selenium_driver):
-        deployments = ui_Deployments(selenium_driver)
-        deployments.ap_subMenu_channels_button(selenium_driver).click()
-        # verification
-        verif = common_funcs(self)
-        xPathLocator = "//h2"
-        test_str = u'Channels'
-        verif.verification(selenium_driver, xPathLocator, test_str)
+    # Go to Details page
+    def deployments__edit_button(self, selenium_driver):
+        # btnPresent = presets(selenium_driver)
+        verif = verification(self)
+        IDLocator = "edit_button"
+        button_name = u"Edit Deployment"
+        verif.verification_button(selenium_driver, IDLocator, button_name)
 
-    def select_templates_button(self, selenium_driver):
-        deployments = ui_Deployments(selenium_driver)
-        deployments.ap_subMenu_templates_button(selenium_driver).click()
-        # verification
-        verif = common_funcs(self)
-        xPathLocator = "//h2"
-        test_str = u'Templates'
-        verif.verification(selenium_driver, xPathLocator, test_str)
-
-    def select_events_button(self, selenium_driver):
-        deployments = ui_Deployments(selenium_driver)
-        deployments.ap_subMenu_events_button(selenium_driver).click()
-        # verification
-        verif = common_funcs(self)
-        xPathLocator = "//h2"
-        test_str = u'Events'
-        verif.verification(selenium_driver, xPathLocator, test_str)
-
-    def select_images_button(self, selenium_driver):
-        deployments = ui_Deployments(selenium_driver)
-        deployments.ap_subMenu_images_button(selenium_driver).click()
-        # verification
-        verif = common_funcs(self)
-        xPathLocator = "//h2"
-        test_str = u'Images'
-        verif.verification(selenium_driver, xPathLocator, test_str)
-
-    def select_history_button(self, selenium_driver):
-        deployments = ui_Deployments(selenium_driver)
-        deployments.ap_subMenu_history_button(selenium_driver).click()
-        # verification
-        verif = common_funcs(self)
-        xPathLocator = "//h2"
-        test_str = u'History'
-        verif.verification(selenium_driver, xPathLocator, test_str)
+    def deployments__delete_button(self, selenium_driver):
+        # btnPresent = presets(selenium_driver)
+        verif = verification(self)
+        IDLocator = "delete_button"
+        button_name = u"Delete Deployment"
+        verif.verification_button(selenium_driver, IDLocator, button_name)
 
 
-#   Images    ##########################################################################################################
-
-class test_Images():
-    f = open(os.path.join(path_report, "AP_Deployments.log"), 'w')
-
-    def open_images_tab(self, selenium_driver):
-        images = ui_Images(selenium_driver)
-        images.ap_images_tab(selenium_driver).click()
-        # verification
-        verif = common_funcs(self)
-        xPathLocator = "//th[6]/span"
-        test_str = u'OS Type'
-        verif.verification(selenium_driver, xPathLocator, test_str)
+#   Images   ###########################################################################################################
 
 
-    def select_list_button(self, selenium_driver):
-        images = ui_Images(selenium_driver)
-        images.ap_subMenu_list_button(selenium_driver).click()
-        # verification
-        verif = common_funcs(self)
-        xPathLocator = "//th[5]/span"
-        test_str = u'Short Name'
-        verif.verification(selenium_driver, xPathLocator, test_str)
+class Images_buttons():
+    f = open(os.path.join(path_report, "AP_Images_pageButtons.log"), 'w')
 
-    def select_detail_button(self, selenium_driver):
-        images = ui_Images(selenium_driver)
-        images.ap_subMenu_detail_button(selenium_driver).click()
-        # verification
-        verif = common_funcs(self)
-        xPathLocator = "//h3/span"
-        test_str = u'Image'
-        verif.verification(selenium_driver, xPathLocator, test_str)
+    def images__new_button(self, selenium_driver):
+        # btnPresent = presets(selenium_driver)
+        verif = verification(self)
+        IDLocator = "new_button"
+        button_name = u"New Image"
+        verif.verification_button(selenium_driver, IDLocator, button_name)
 
-    def select_deployments_button(self, selenium_driver):
-        images = ui_Images(selenium_driver)
-        images.ap_subMenu_deployments_button(selenium_driver).click()
-        # verification
-        verif = common_funcs(self)
-        xPathLocator = "//h2"
-        test_str = u'Deployments'
-        verif.verification(selenium_driver, xPathLocator, test_str)
+    def images__search_button(self, selenium_driver):
+        # btnPresent = presets(selenium_driver)
+        verif = verification(self)
+        IDLocator = "search_images"
+        button_name = u"Search Image"
+        verif.verification_button(selenium_driver, IDLocator, button_name)
 
-    def select_history_button(self, selenium_driver):
-        images = ui_Images(selenium_driver)
-        images.ap_subMenu_history_button(selenium_driver).click()
-        # verification
-        verif = common_funcs(self)
-        xPathLocator = "//h2"
-        test_str = u'History'
-        verif.verification(selenium_driver, xPathLocator, test_str)
+    def images__go_button(self, selenium_driver):
+        # btnPresent = presets(selenium_driver)
+        verif = verification(self)
+        IDLocator = "go"
+        button_name = u"Go"
+        verif.verification_button(selenium_driver, IDLocator, button_name)
 
-    def select_spla_button(self, selenium_driver):
-        images = ui_Images(selenium_driver)
-        images.ap_subMenu_spla_button(selenium_driver).click()
-        # verification
-        verif = common_funcs(self)
-        xPathLocator = "//h2"
-        test_str = u'SPLA'
-        verif.verification(selenium_driver, xPathLocator, test_str)
+    # Go to Details page
+    def images__edit_button(self, selenium_driver):
+        # btnPresent = presets(selenium_driver)
+        verif = verification(self)
+        IDLocator = "edit_button"
+        button_name = u"Edit Image"
+        verif.verification_button(selenium_driver, IDLocator, button_name)
 
+    def images__delete_button(self, selenium_driver):
+        # btnPresent = presets(selenium_driver)
+        verif = verification(self)
+        IDLocator = "delete_button"
+        button_name = u"Delete Image"
+        verif.verification_button(selenium_driver, IDLocator, button_name)
 
 #   Users   ############################################################################################################
-class test_Users():
-    f = open(os.path.join(path_report, "AP_Users.log"), 'w')
 
-    def open_users_tab(self, selenium_driver):
-        users = ui_Users(selenium_driver)
-        users.ap_users_tab(selenium_driver).click()
-        # verification
-        verif = common_funcs(self)
-        xPathLocator = "//th[6]/span"
-        test_str = u'Billing Entity'
-        verif.verification(selenium_driver, xPathLocator, test_str)
+class Users_buttons():
+    f = open(os.path.join(path_report, "AP_Users_pageButtons.log"), 'w')
 
-    def select_list_button(self, selenium_driver):
-        users = ui_Users(selenium_driver)
-        users.ap_subMenu_list_button(selenium_driver).click()
-        # verification
-        verif = common_funcs(self)
-        xPathLocator = "//th[5]/span"
-        test_str = u'Primary Email'
-        verif.verification(selenium_driver, xPathLocator, test_str)
+    def users__new_button(self, selenium_driver):
+        # btnPresent = presets(selenium_driver)
+        verif = verification(self)
+        IDLocator = "new_button"
+        button_name = u"New User"
+        verif.verification_button(selenium_driver, IDLocator, button_name)
 
-    def select_detail_button(self, selenium_driver):
-        users = ui_Users(selenium_driver)
-        users.ap_subMenu_detail_button(selenium_driver).click()
-        # verification
-        verif = common_funcs(self)
-        xPathLocator = "//h3/span"
-        test_str = u'User'
-        verif.verification(selenium_driver, xPathLocator, test_str)
+    def users__search_button(self, selenium_driver):
+        # btnPresent = presets(selenium_driver)
+        verif = verification(self)
+        IDLocator = "search_images"
+        button_name = u"Search User"
+        verif.verification_button(selenium_driver, IDLocator, button_name)
 
-    def select_events_button(self, selenium_driver):
-        users = ui_Users(selenium_driver)
-        users.ap_subMenu_events_button(selenium_driver).click()
-        # verification
-        verif = common_funcs(self)
-        xPathLocator = "//h2"
-        test_str = u'Events'
-        verif.verification(selenium_driver, xPathLocator, test_str)
+    def users__go_button(self, selenium_driver):
+        # btnPresent = presets(selenium_driver)
+        verif = verification(self)
+        IDLocator = "go"
+        button_name = u"Go"
+        verif.verification_button(selenium_driver, IDLocator, button_name)
+
+    # Go to Details page
+    def users__edit_button(self, selenium_driver):
+        # btnPresent = presets(selenium_driver)
+        verif = verification(self)
+        IDLocator = "edit_button"
+        button_name = u"Edit User"
+        verif.verification_button(selenium_driver, IDLocator, button_name)
+
+    def users__delete_button(self, selenium_driver):
+        # btnPresent = presets(selenium_driver)
+        verif = verification(self)
+        IDLocator = "delete_button"
+        button_name = u"Delete User"
+        verif.verification_button(selenium_driver, IDLocator, button_name)
 
 
 #   Roles   ############################################################################################################
-class test_Roles():
-    f = open(os.path.join(path_report, "AP_Roles.log"), 'w')
 
-    def open_roles_tab(self, selenium_driver):
-        roles = ui_Roles(selenium_driver)
-        roles.ap_roles_tab(selenium_driver).click()
-        # verification
-        verif = common_funcs(self)
-        xPathLocator = "//th[4]/span"
-        test_str = u'Built-In'
-        verif.verification(selenium_driver, xPathLocator, test_str)
+class Roles_buttons():
+    f = open(os.path.join(path_report, "AP_Roles_pageButtons.log"), 'w')
 
-    def select_list_button(self, selenium_driver):
-        roles = ui_Roles(selenium_driver)
-        roles.ap_subMenu_list_button(selenium_driver).click()
-        # verification
-        verif = common_funcs(self)
-        xPathLocator = "//th[3]/span"
-        test_str = u'Name'
-        verif.verification(selenium_driver, xPathLocator, test_str)
+    def roles__new_button(self, selenium_driver):
+        # btnPresent = presets(selenium_driver)
+        verif = verification(self)
+        IDLocator = "new_button"
+        button_name = u"New Role"
+        verif.verification_button(selenium_driver, IDLocator, button_name)
 
-    def select_detail_button(self, selenium_driver):
-        roles = ui_Roles(selenium_driver)
-        roles.ap_esubMenu_detail_button(selenium_driver).click()
-        # verification
-        verif = common_funcs(self)
-        xPathLocator = "//h3/span"
-        test_str = u'Role'
-        verif.verification(selenium_driver, xPathLocator, test_str)
+    # Go to Details page
+    def roles__edit_button(self, selenium_driver):
+        # btnPresent = presets(selenium_driver)
+        verif = verification(self)
+        IDLocator = "edit_button"
+        button_name = u"Edit Role"
+        verif.verification_button(selenium_driver, IDLocator, button_name)
 
-    def select_users_button(self, selenium_driver):
-        roles = ui_Roles(selenium_driver)
-        roles.ap_subMenu_users_button(selenium_driver).click()
-        # verification
-        verif = common_funcs(self)
-        xPathLocator = "//h2"
-        test_str = u'Users'
-        verif.verification(selenium_driver, xPathLocator, test_str)
-
-    def select_permissions_button(self, selenium_driver):
-        roles = ui_Roles(selenium_driver)
-        roles.ap_subMenu_permissions_button(selenium_driver).click()
-        # verification
-        verif = common_funcs(self)
-        xPathLocator = "//h2"
-        test_str = u'Permissions'
-        verif.verification(selenium_driver, xPathLocator, test_str)
+    def roles__delete_button(self, selenium_driver):
+        # btnPresent = presets(selenium_driver)
+        verif = verification(self)
+        IDLocator = "delete_button"
+        button_name = u"Delete Role"
+        verif.verification_button(selenium_driver, IDLocator, button_name)
 
 
-#   Entities    ########################################################################################################
-class test_Entities():
-    f = open(os.path.join(path_report, "AP_Entities.log"), 'w')
+#   Entities   #########################################################################################################
 
-    def open_entities_tab(self, selenium_driver):
-        entities = ui_Entities(selenium_driver)
-        entities.ap_entities_tab(selenium_driver).click()
-        # verification
-        verif = common_funcs(self)
-        xPathLocator = "//th[6]/span"
-        test_str = u'Billing User'
-        verif.verification(selenium_driver, xPathLocator, test_str)
+class Entities_buttons():
+    f = open(os.path.join(path_report, "AP_Entities_pageButtons.log"), 'w')
 
-    def select_list_button(self, selenium_driver):
-        entities = ui_Entities(selenium_driver)
-        entities.ap_subMenu_list_button(selenium_driver).click()
-        # verification
-        verif = common_funcs(self)
-        xPathLocator = "//th[5]/span"
-        test_str = u'Currency'
-        verif.verification(selenium_driver, xPathLocator, test_str)
+    # Go to Details page
+    def entities__delete_button(self, selenium_driver):
+        # btnPresent = presets(selenium_driver)
+        verif = verification(self)
+        IDLocator = "delete_button"
+        button_name = u"Delete Billing Entity"
+        verif.verification_button(selenium_driver, IDLocator, button_name)
 
-    def select_detail_button(self, selenium_driver):
-        entities = ui_Entities(selenium_driver)
-        entities.ap_subMenu_detail_button(selenium_driver).click()
-        # verification
-        verif = common_funcs(self)
-        xPathLocator = "//h3/span"
-        test_str = u'Billing Entity'
-        verif.verification(selenium_driver, xPathLocator, test_str)
+#   Reports   #########################################################################################################
 
+class Reports_buttons():
+    f = open(os.path.join(path_report, "AP_Reports_pageButtons.log"), 'w')
 
-#   Reports    #########################################################################################################
+    def reports__go_button(self, selenium_driver):
+        # btnPresent = presets(selenium_driver)
+        verif = verification(self)
+        IDLocator = "go"
+        button_name = u"Go"
+        verif.verification_button(selenium_driver, IDLocator, button_name)
 
-class test_Reports():
-    f = open(os.path.join(path_report, "AP_Reports.log"), 'w')
+#   Systems   ##########################################################################################################
 
-    def open_reports_tab(self, selenium_driver):
-        reports = ui_Reports(selenium_driver)
-        reports.ap_reports_tab(selenium_driver).click()
+class Systems_buttons():
+    f = open(os.path.join(path_report, "AP_Systems_pageButtons.log"), 'w')
 
-        # reports_tab_verification
-        verif = common_funcs(self)
-        xPathLocator = "//span[5]"
-        test_str = u'Skip unassigned Events:'
-        verif.verification(selenium_driver, xPathLocator, test_str)
+    def systems__prev_button(self, selenium_driver):
+        # btnPresent = presets(selenium_driver)
+        verif = verification(self)
+        IDLocator = "systems_prev"
+        button_name = u"Prev"
+        verif.verification_button(selenium_driver, IDLocator, button_name)
 
-    def select_eventReport_button(self, selenium_driver):
-        reports = ui_Reports(selenium_driver)
-        reports.ap_subMenu_eventReport_button(selenium_driver).click()
+    def systems__next_button(self, selenium_driver):
+        # btnPresent = presets(selenium_driver)
+        verif = verification(self)
+        IDLocator = "systems_next"
+        button_name = u"Next"
+        verif.verification_button(selenium_driver, IDLocator, button_name)
 
-        # reports_eventReport_button_verification
-        verif = common_funcs(self)
-        xPathLocator = "//div/span"
-        test_str = u'exact:Report:'
-        verif.verification(selenium_driver, xPathLocator, test_str)
-
-#   Systems    #########################################################################################################
-
-class test_Systems():
-    f = open(os.path.join(path_report, "AP_Systems.log"), 'w')
-
-    def open_systems_tab(self, selenium_driver):
-        systems = ui_Systems(selenium_driver)
-        systems.ap_systems_tab(selenium_driver).click()
-
-        # systems_tab_verification
-        verif = common_funcs(self)
-        xPathLocator = "//div[2]/a"
-        test_str = u'Systems usage'
-        verif.verification(selenium_driver, xPathLocator, test_str)
-
-    def select_systemUsage_button(self, selenium_driver):
-        systems = ui_Systems(selenium_driver)
-        systems.ap_subMenu_systemUsage_button(selenium_driver).click()
-
-        # systems_systemUsage_button_verification
-        verif = common_funcs(self)
-        xPathLocator = "//button"
-        test_str = u'Go'
-        verif.verification(selenium_driver, xPathLocator, test_str)
+    def systems__go_button(self, selenium_driver):
+        # btnPresent = presets(selenium_driver)
+        verif = verification(self)
+        IDLocator = "go"
+        button_name = u"Go"
+        verif.verification_button(selenium_driver, IDLocator, button_name)
 
 
-#   Vouchers    ########################################################################################################
+#   Vouchers   #########################################################################################################
 
-class test_Vouchers():
-    f = open(os.path.join(path_report, "AP_Vouchers.log"), 'w')
+class Vouchers_buttons():
+    f = open(os.path.join(path_report, "AP_Vouchers_pageButtons.log"), 'w')
 
-    def open_vouchers_tab(self, selenium_driver):
-        vouchers = ui_Vouchers(selenium_driver)
-        vouchers.ap_vouchers_tab(selenium_driver)
+    def vouchers__new_button(self, selenium_driver):
+        # btnPresent = presets(selenium_driver)
+        verif = verification(self)
+        IDLocator = "new_button"
+        button_name = u"New Voucher Block"
+        verif.verification_button(selenium_driver, IDLocator, button_name)
 
-        # vouchers_tab_verification
-        verif = common_funcs(self)
-        xPathLocator = "//th[2]/span"
-        test_str = u'ID'
-        verif.verification(selenium_driver, xPathLocator, test_str)
+    def vouchers__search_button(self, selenium_driver):
+        # btnPresent = presets(selenium_driver)
+        verif = verification(self)
+        IDLocator = "search_images"
+        button_name = u"Search Voucher Block"
+        verif.verification_button(selenium_driver, IDLocator, button_name)
 
-    def select_list_button(self, selenium_driver):
-        vouchers = ui_Vouchers(selenium_driver)
-        vouchers.ap_subMenu_list_button(selenium_driver).click()
+    def vouchers__go_button(self, selenium_driver):
+        # btnPresent = presets(selenium_driver)
+        verif = verification(self)
+        IDLocator = "go"
+        button_name = u"Go"
+        verif.verification_button(selenium_driver, IDLocator, button_name)
 
-        # select_list_button_verification
-        verif = common_funcs(self)
-        xPathLocator = "//th[3]/span"
-        test_str = u'Customer'
-        verif.verification(selenium_driver, xPathLocator, test_str)
+    # Go to Details page
+    def vouchers__edit_button(self, selenium_driver):
+        # btnPresent = presets(selenium_driver)
+        verif = verification(self)
+        IDLocator = "edit_button"
+        button_name = u"Edit Voucher Block"
+        verif.verification_button(selenium_driver, IDLocator, button_name)
 
-    def select_detail_button(self, selenium_driver):
-        vouchers = ui_Vouchers(selenium_driver)
-        vouchers.ap_subMenu_detail_button(selenium_driver).click()
+    def vouchers__delete_button(self, selenium_driver):
+        # btnPresent = presets(selenium_driver)
+        verif = verification(self)
+        IDLocator = "delete_button"
+        button_name = u"Delete Voucher Block"
+        verif.verification_button(selenium_driver, IDLocator, button_name)
 
-        # select_detail_button_verification
-        verif = common_funcs(self)
-        xPathLocator = "//h2"
-        test_str = u'Template Vouchers'
-        verif.verification(selenium_driver, xPathLocator, test_str)
+#   Billing   ##########################################################################################################
 
-    def select_notifications_button(self, selenium_driver):
-        vouchers = ui_Vouchers(selenium_driver)
-        vouchers.ap_subMenu_notifications_button(selenium_driver).click()
+class Billing_buttons():
+    f = open(os.path.join(path_report, "AP_Billing_pageButtons.log"), 'w')
 
-        # select_notifications_button_verification
-        verif = common_funcs(self)
-        xPathLocator = "//h2"
-        test_str = u'Notifications'
-        verif.verification(selenium_driver, xPathLocator, test_str)
+    def billing__go_button(self, selenium_driver):
+        # btnPresent = presets(selenium_driver)
+        verif = verification(self)
+        IDLocator = "go"
+        button_name = u"Go"
+        verif.verification_button(selenium_driver, IDLocator, button_name)
 
-    def select_templateVouchers_button(self, selenium_driver):
-        vouchers = ui_Vouchers(selenium_driver)
-        vouchers.ap_subMenu_templateVouchers_button(selenium_driver).click()
+    def vouchers__delete_button(self, selenium_driver):
+        # btnPresent = presets(selenium_driver)
+        verif = verification(self)
+        IDLocator = "delete_button"
+        button_name = u"Delete No Data"
+        verif.verification_button(selenium_driver, IDLocator, button_name)
 
-        # select_templateVouchers_button_verification
-        verif = common_funcs(self)
-        xPathLocator = "//th/span"
-        test_str = u'ID'
-        verif.verification(selenium_driver, xPathLocator, test_str)
+    def vouchers__payByCredit_button(self, selenium_driver):
+        # btnPresent = presets(selenium_driver)
+        verif = verification(self)
+        IDLocator = "billing_payByCard"
+        button_name = u"Pay By Credit Card"
+        verif.verification_button(selenium_driver, IDLocator, button_name)
 
-#   Billing    #########################################################################################################
-class test_Billing():
-    f = open(os.path.join(path_report, "AP_Billing.log"), 'w')
-
-    def open_billing_tab(self, selenium_driver):
-        billing = ui_Billing(selenium_driver)
-        billing.ap_billing_tab(selenium_driver).click()
-
-        # billing_tab_verification
-        verif = common_funcs(self)
-        xPathLocator = "//th[3]/span"
-        test_str = u'Billing Entity'
-        verif.verification(selenium_driver, xPathLocator, test_str)
-
-    def select_list_button(self, selenium_driver):
-        billing = ui_Billing(selenium_driver)
-        billing.ap_subMenu_list_button(selenium_driver).click()
-
-        # select_list_button_verification
-        verif = common_funcs(self)
-        xPathLocator = "//th[5]/span"
-        test_str = u'Event Name'
-        verif.verification(selenium_driver, xPathLocator, test_str)
-
-    def select_detail_button(self, selenium_driver):
-        billing = ui_Billing(selenium_driver)
-        billing.ap_subMenu_detail_button(selenium_driver).click()
-
-        # select_detail_button_verification
-        verif = common_funcs(self)
-        xPathLocator = "//h2"
-        test_str = u'Estimated Price Detail'
-        verif.verification(selenium_driver, xPathLocator, test_str)
-
-    def select_payments_button(self, selenium_driver):
-        billing = ui_Billing(selenium_driver)
-        billing.ap_subMenu_payments_button(selenium_driver).click()
-
-        # select_notifications_button_verification
-        verif = common_funcs(self)
-        xPathLocator = "//div[2]/h2"
-        test_str = u'Pay By Wire Transfer - Non-US Customers'
-        verif.verification(selenium_driver, xPathLocator, test_str)
-
-#   End    #############################################################################################################
+########################################################################################################################
