@@ -1,10 +1,10 @@
 from selenium import webdriver
+from selenium.webdriver.common.by import By
 driver = webdriver.Firefox()
-driver.maximize_window()
 
 driver.get("http://blah_blah_blah.com")
 try:
-    elem= driver.find_element_by_name("chk_email")
+    elem = driver.find_element(By.NAME, "chk_email")
     if (elem.is_selected()):
         print("Checkbox is selected..now deselecting")
         elem.click()
