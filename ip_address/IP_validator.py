@@ -20,7 +20,6 @@ try:
 except socket.error:
     # Not legal
 
-
 # IP address validator:  v3
 from IPy import IP
 try:
