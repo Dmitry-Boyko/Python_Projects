@@ -1,4 +1,4 @@
-def math(a, b):        # (parameter1, parametr2)
+def math(a, b):          # (parameter1, parametr2)
     a = a/2
     b = b + 11
     print (a * b)
@@ -6,7 +6,7 @@ def math(a, b):        # (parameter1, parametr2)
 num1 = 20
 num2 = 3
 
-print math(num1, num2) # (argum1, argum2)
+print math(num1, num2)   # (argum1, argum2)
 
 
 def func1(num):
