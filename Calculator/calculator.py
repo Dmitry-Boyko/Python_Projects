@@ -22,10 +22,23 @@ class calculator():
     
     choice = int(raw_input('Please enter expecting operation: '))
     
-    num1 = float(raw_input('Please inout First number: >  '))
-    num2 = float(raw_input('Please input Second number: > '))
-
+    # input first number
+    try: 
+        num1 = float(raw_input('Please inout First number: >  '))
+        if num1 != float:
+            print('Wrong input, try again')
+    except:
+        pass
     
+    # input second number
+    try:    
+        num2 = float(raw_input('Please input Second number: > '))
+        if num2 != float:
+            print('Wrong input, try again')
+    except:
+        pass
+    
+    # action
     if choice == '1':
         print(num1, "+", num2, "=", add(num1, num2))
         
