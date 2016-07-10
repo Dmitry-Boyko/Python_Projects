@@ -56,6 +56,7 @@ class calculator():
         
     else:
         print("Invalid input")
+    
 
 
 calculator()
