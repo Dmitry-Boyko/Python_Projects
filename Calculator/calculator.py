@@ -52,7 +52,8 @@ class calculator():
     
     elif choice == '0':
         print('Thank you.')
-        quit()
+        #quit()
+        sys.Exit()
         
     else:
         print("Invalid input")
