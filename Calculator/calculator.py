@@ -1,4 +1,3 @@
-import sys
 
 class calculator():
     
@@ -52,8 +51,7 @@ class calculator():
     
     elif choice == '0':
         print('Thank you.')
-        #quit()
-        sys.Exit()
+        quit()
         
     else:
         print("Invalid input")
