@@ -1,3 +1,4 @@
+import sys
 
 class calculator():
     
@@ -20,27 +21,25 @@ class calculator():
     print('4. Divide')
     print('0. Exit')
     
-    choice = int(raw_input('Please enter expecting operation: '))
+    choice = raw_input('Please enter expecting operation: ')
     
     # input first number
     try: 
         num1 = float(raw_input('Please inout First number: >  '))
-        if num1 != float:
-            print('Wrong input, try again')
     except:
         pass
     
     # input second number
     try:    
         num2 = float(raw_input('Please input Second number: > '))
-        if num2 != float:
-            print('Wrong input, try again')
     except:
         pass
     
     # action
     if choice == '1':
-        print(num1, "+", num2, "=", add(num1, num2))
+        #print(num1, "+", num2, "=", add(num1, num2))
+        result = num1 + num2
+        print(num1, "+", num2, "=", result)
         
     elif choice == '2':
         print(num1, "-", num2, "=", substract(num1, num2))
@@ -52,7 +51,8 @@ class calculator():
         print(num1, ":", num2, "=", divide(num1, num2))
     
     elif choice == '0':
-        exit()
+        print('Thank you.')
+        quit()
         
     else:
         print("Invalid input")
