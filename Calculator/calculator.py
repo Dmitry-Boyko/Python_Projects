@@ -1,26 +1,19 @@
 
 class calculator():
     
-    def add(self, x, y):
+    def add(x, y):
         return x + y
         
-    def substract(self, x, y):
+    def substract(x, y):
         return x - y
         
-    def multiply(self, x, y):
+    def multiply(x, y):
         return x * y
     
-    def divide(self, x, y):
+    def divide(x, y):
         return x / y
 
-    print('Calculator operation')
-    print('1. Addition')
-    print('2. Substract')
-    print('3. Multiplay')
-    print('4. Divide')
-    print('0. Exit')
     
-    choice = raw_input('Please enter expecting operation: ')
     
     # input first number
     try: 
@@ -34,20 +27,27 @@ class calculator():
     except:
         pass
     
+    print('Calculator operation')
+    print('1. Addition')
+    print('2. Substract')
+    print('3. Multiplay')
+    print('4. Divide')
+    print('0. Exit')
+    
+    choice = raw_input('Please enter expecting operation: ')
+    
     # action
     if choice == '1':
-        #print(num1, "+", num2, "=", add(num1, num2))
-        result = num1 + num2
-        print(num1, "+", num2, "=", result)
+        print num1, "+", num2, "=", add(num1, num2)
         
     elif choice == '2':
-        print(num1, "-", num2, "=", substract(num1, num2))
+        print num1, "-", num2, "=", substract(num1, num2)
         
     elif choice == '3':
-        print(num1, "*", num2, "=", multiply(num1, num2))
+        print num1, "*", num2, "=", multiply(num1, num2)
         
     elif choice == '4':
-        print(num1, ":", num2, "=", divide(num1, num2))
+        print num1, ":", num2, "=", divide(num1, num2)
     
     elif choice == '0':
         print('Thank you.')
@@ -55,7 +55,5 @@ class calculator():
         
     else:
         print("Invalid input")
-    
-
-
+        
 calculator()
