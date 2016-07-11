@@ -13,19 +13,12 @@ class calculator():
     def divide(x, y):
         return x / y
 
-    
-    
     # input first number
-    try: 
-        num1 = float(raw_input('Please inout First number: >  '))
-    except:
-        pass
+    num1 = float(raw_input('Please inout First number: >  '))
+
     
     # input second number
-    try:    
-        num2 = float(raw_input('Please input Second number: > '))
-    except:
-        pass
+    num2 = float(raw_input('Please input Second number: > '))
     
     print('Calculator operation')
     print('1. Addition')
