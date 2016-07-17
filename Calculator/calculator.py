@@ -14,7 +14,7 @@ class calculator():
         return x / y
 
     # input first number
-    num1 = float(raw_input('Please inout First number: >  '))
+    num1 = float(raw_input('Please input First number: >  '))
 
     
     # input second number
