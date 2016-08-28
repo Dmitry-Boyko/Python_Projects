@@ -32,7 +32,9 @@ print '\nExample 3.36.'
 params = {'server': 'mpiligrim', 'database': 'master', 'uid': 'sa', 'pwd': 'secret'}
 k_prnt = [k for k, v in params.items()]
 print 'keys in list params: %s' % (k_prnt)
+
 v_prnt = [v for k, v in params.items()]
 print 'value in list params: %s' % (v_prnt)
+
 kv_frmt = ["%s = %s" % (k, v) for k, v in params.items()]
 print 'keys and values in list param: %s' % (kv_frmt)
