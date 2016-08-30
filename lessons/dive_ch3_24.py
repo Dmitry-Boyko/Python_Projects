@@ -38,3 +38,18 @@ print 'value in list params: %s' % (v_prnt)
 
 kv_frmt = ["%s = %s" % (k, v) for k, v in params.items()]
 print 'keys and values in list param: %s' % (kv_frmt)
+
+"""
+3.27
+"""
+print('\nExample3.27')
+params = {'server': 'mpiligrim', 
+          'database': 'master', 
+          'uid': 'sa', 
+          'pwd': 'secret'}
+
+dd = ["%s=%s" % (k, v) for k, v in params.items()]
+print dd
+
+dd = ";".join(["%s=%s" % (k, v) for k, v in params.items()])
+print dd
