@@ -42,7 +42,7 @@ print 'keys and values in list param: %s' % (kv_frmt)
 """
 3.27
 """
-print('\nExample3.27')
+print('\nExample 3.27')
 params = {'server': 'mpiligrim', 
           'database': 'master', 
           'uid': 'sa', 
@@ -53,3 +53,23 @@ print dd
 
 dd = ";".join(["%s=%s" % (k, v) for k, v in params.items()])
 print dd
+
+"""
+3.28
+"""
+print '\nExample 3.28'
+
+li = {'server': 'mpiligrim', 
+          'database': 'master', 
+          'uid': 'sa', 
+          'pwd': 'secret'}
+print li
+        
+s = ";".join(li)
+print s
+
+s.split(";")
+print s
+
+s.split(";", 1)
+print s
