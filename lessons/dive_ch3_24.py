@@ -66,10 +66,10 @@ li = {'server': 'mpiligrim',
 print li
         
 s = ";".join(li)
-print s
+print 'Joined ', s
 
-s.split(";")
-print s
+#s.split(";")
+#print s
 
 s.split(";", 1)
-print s
+print 'Splited ', s
