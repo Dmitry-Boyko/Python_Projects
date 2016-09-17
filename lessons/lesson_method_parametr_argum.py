@@ -1,3 +1,4 @@
+
 def math(a, b):          # (parameter1, parametr2)
     a = a/2
     b = b + 11

@@ -65,11 +65,11 @@ li = {'server': 'mpiligrim',
           'pwd': 'secret'}
 print li
         
-s = ";".join(li)
-print 'Joined ', s
+dd = ";".join(li)
+print 'Joined ', dd
 
-#s.split(";")
-#print s
+# dd.split(";")
+# print dd
 
-s.split(";", 1)
-print 'Splited ', s
+dd.split(";", 1)
+print 'Splited ', dd

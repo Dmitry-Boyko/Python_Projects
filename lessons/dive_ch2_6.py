@@ -1,5 +1,3 @@
-import math
-
 def fib(n):
     print 'n = ', n
     if n > 1:
