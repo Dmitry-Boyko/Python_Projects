@@ -10,3 +10,7 @@ print "\n"
 
 for name in sys.builtin_module_names:
     print name
+
+print "\n"
+
+print help(sys)
