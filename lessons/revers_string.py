@@ -12,11 +12,10 @@ sentx = {
 print "Selected second word: ", sentx[str2][::-1] + sentx[str3] + sentx[str1]
 
 
-def reverse(data_list):
-    length = len(data_list)
-    s = length
-
-    for item in data_list:
-        s = s - 1
-        data_list[s] = item
+def reverse(data_list): 
+    length = len(data_list) 
+    s = length 
+    for item in data_list: 
+        s = s - 1 
+        data_list[s] = item 
     return data_list
