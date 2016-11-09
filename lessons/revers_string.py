@@ -22,3 +22,6 @@ def reverse(data_list):
         s = s - 1 
         data_list[s] = item 
     return data_list
+
+def reverse(data_list):
+	return data_list[::-1]
