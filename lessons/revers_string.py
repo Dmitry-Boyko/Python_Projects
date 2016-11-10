@@ -23,5 +23,5 @@ def reverse(data_list):
         data_list[s] = item 
     return data_list
 
-def reverse(data_list):
+def reverse(data_list):  # Slice Method
 	return data_list[::-1]
