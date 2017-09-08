@@ -23,6 +23,7 @@ from fr2cl import fr2cl
 print 'convert lb to kg press "l"'
 print 'convert inch to cm press "i"'
 print 'convert F to C press "f"'
+print 'convert Fahrenheit to Celsius formula'
 
 choice = str(raw_input('Enter the letter for the next step: '))
 
@@ -31,7 +32,7 @@ if choice == "i":
 elif choice == "l":
                  lb2kg()
 elif choice == "f":
-				fr2cl()
+			   	 fr2cl()
 else:
     print "You chosed wrong character"
  

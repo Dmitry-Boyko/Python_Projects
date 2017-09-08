@@ -7,7 +7,7 @@
 
 def inch2cm():
     try:
-        inpt1 = int(raw_input("type number of inch and i will convert it to centimeters: "))
+        inpt1 = float(raw_input("type number of inch and i will convert it to centimeters: "))
         cm = inpt1 * 2.54
         print str(cm) + ' cm'
     except ValueError:

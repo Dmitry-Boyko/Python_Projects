@@ -6,7 +6,7 @@
 
 def lb2kg():
     try:
-        inpt = int(raw_input("type number of inch and i will convert it to centimeters: "))
+        inpt = float(raw_input("type number of inch and i will convert it to centimeters: "))
         kg = inpt * 0.45359237
         print str(kg) + ' kg'
     except ValueError:

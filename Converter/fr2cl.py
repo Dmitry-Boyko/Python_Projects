@@ -7,7 +7,7 @@
 
 def fr2cl():
     try:
-        inpt3 = int(raw_input("type temperature in Fahrenheits and i will convert it to Celsius: "))
+        inpt3 = float(raw_input("type temperature in Fahrenheits and i will convert it to Celsius: "))
         c =  0.5555555555555 * (inpt3 - 32.0)
         print str(c) + ' C'
     except ValueError:
