@@ -26,7 +26,7 @@ print 'convert inch to cm press                "i"'
 print 'convert Fahrenheit to Celsius press     "f"'
 print 'convert Celsius to Fahrenheit press     "c"'
 
-choice = str(raw_input('Enter the letter for the next step: '))
+choice = str(raw_input('\nEnter the letter for the next step: '))
 
 if choice == "i":
                  inch2cm()
