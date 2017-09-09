@@ -21,8 +21,8 @@ from inch2cm import inch2cm
 from fr2cl import fr2cl
 from fr2cl import c_to_f
 
-print 'convert lb to kg press   "l"'
-print 'convert inch to cm press "i"'
+print 'convert lb to kg press                  "l"'
+print 'convert inch to cm press                "i"'
 print 'convert Fahrenheit to Celsius press     "f"'
 print 'convert Celsius to Fahrenheit press     "c"'
 
