@@ -19,3 +19,10 @@ while password != "password123":
     else:
         print("Wrong input. Try again")
 
+print("\n")
+
+names = ['james', 'chris', 'stas']
+email_domain = ['gmail', 'hotmail', 'yahoo']
+
+for i, j in zip(names, email_domain):
+    print(i, j)
