@@ -20,4 +20,11 @@ def translate(w):
 
 word = input('Enter word: ')
 
+# next print will show a list
 print(translate(word))
+print '\n'
+# next print line will show a string
+output = translate(word)
+
+for item in output:
+    print(item)
