@@ -1,6 +1,8 @@
 """
 1. expect user input
 2. use if method for selection
+Odd = 1,3,,7,...
+Even = 2, 4, ... 8, ...
 """
 
 num = float(raw_input("please enter some number:>  "))
