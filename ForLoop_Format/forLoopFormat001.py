@@ -1,4 +1,16 @@
 #/usr/bin/python
+"""
+# for loop with selenium
+#   To fetch all elements start with termsName 
+
+element_list = firefox_driver.find_elements_by_id("termsName[0-9]*")
+
+#   below code will iterate over the all links
+for i in range(len(element_list)):
+        name = "termsName" + str(i)
+        Select(self.driver.find_element_by_name(name).select_by_visible_text("Blank No Text")
+
+"""
 
 for num in range(10, 20):       # to iterate between 10 and 20
     for i in range(2, num):     # to iterate on the factor of the numer
